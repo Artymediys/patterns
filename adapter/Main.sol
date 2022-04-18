@@ -23,14 +23,14 @@ contract Main is OnlyOwner {
         require(tvm.pubkey() != 0, 101);
         tvm.accept();
 
-        _buidAllCode(code_traveler, code_mobile, code_internet, code_adapter);
+        _deployAllContracts(code_traveler, code_mobile, code_internet, code_adapter);
 
         // Example
         ITraveler(contractAddresses["traveler"]).call(IInternet(contractAddresses["internet"]));
         ITraveler(contractAddresses["traveler"]).call(IInternet(contractAddresses["adapter"]));
     }
 
-    function _buidAllCode(
+    function _deployAllContracts(
         TvmCell code_t,
         TvmCell code_m,
         TvmCell code_i,
