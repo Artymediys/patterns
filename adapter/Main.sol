@@ -10,6 +10,7 @@ import "Mobile.sol";
 import "Internet.sol";
 import "MobileToInternetAdapter.sol";
 
+// Example
 contract Main is OnlyOwner {
     ITraveler traveler;
     mapping(string => address) contractAddresses;
@@ -25,8 +26,10 @@ contract Main is OnlyOwner {
 
         _deployAllContracts(code_traveler, code_mobile, code_internet, code_adapter);
 
-        // Example
+        // Result: "Calling by internet..."
         ITraveler(contractAddresses["traveler"]).call(IInternet(contractAddresses["internet"]));
+
+        // Result: "Calling by mobile_net..."
         ITraveler(contractAddresses["traveler"]).call(IInternet(contractAddresses["adapter"]));
     }
 

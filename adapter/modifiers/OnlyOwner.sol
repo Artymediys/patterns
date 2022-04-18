@@ -1,5 +1,4 @@
 pragma ton-solidity >= 0.58.1;
-pragma AbiHeader expire;
 
 abstract contract OnlyOwner {
     modifier onlyOwner() {
